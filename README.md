@@ -3,7 +3,9 @@ Mod for the game [0ad](https://play0ad.com/) that should help with managing the 
 
 ## Description
 So far, only one feature has been implemented: A counter that keeps track of your resource gather rates in a certain time window.
+
 ![Economy Helper Overlay](EconomyHelperOverlay.png)
+
 * Toggle the overlay with Ctrl+E
 * Configure the length of the time window under `economyhelper.resourcegatherrates.window.seconds`
   * Defaults to 60 Seconds
