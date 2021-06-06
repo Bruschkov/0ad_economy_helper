@@ -2,6 +2,7 @@
     "name": "economy-helper",
     "version": "0.0.1",
     "label": "Economy Helper",
+    "url": "https://github.com/Bruschkov/0ad.economy-helper",
     "description": "An economy helper for the lazy",
     "dependencies": ["0ad=0.0.24"]
 }
