@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<object
+        name="economyHelper_Overlay"
+        type="image"
+        sprite="sessionOverlayBackground"
+        size="10% 10% 25% 15%"
+        hidden="false"
+        hotkey="session.economyhelper.overlay"
+>
+    <object type="text"
+            name="economyHelper_testText"
+            size="20 20 260 130"
+            textcolor="255 255 255"
+    >DEFAULT TEXT
+    </object>
+
+    <object size="0 0 50%-90-52 100%" name="economyHelper_resourceGatherRates">
+        <repeat count="4">
+            <object name="economyHelper_resource[n]" size="0 0 89 100%" type="button" style="resourceCounter" tooltip_style="sessionToolTipBold">
+                <object name="economyHelper_resource[n]_icon" size="0 -2 40 38" type="image" ghost="true"/>
+                <object name="economyHelper_resource[n]_gather_rate" size="34 0 100%-2 100%-2" type="text" style="resourceText"/>
+            </object>
+        </repeat>
+    </object>
+
+</object>
