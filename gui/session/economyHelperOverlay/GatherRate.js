@@ -1,15 +1,13 @@
 class GatherRate {
-    constructor(resCode, panel, icon, rate) {
-        this.timeWindowMilliSeconds = 60 * 1000;
+    constructor(resCode, windowSizeSeconds, panel, icon, rate) {
+        this.resCode = resCode;
+        this.windowSizeMilliSeconds = windowSizeSeconds * 1000;
+        this.panel = panel;
+        this.icon = icon;
+        this.rate = rate;
 
         this.timestamps = [];
         this.resourceCounts = [];
-
-        this.resCode = resCode;
-        this.panel = panel;
-        this.panel.caption("RESOURCE INITIALIZED!")
-        this.icon = icon;
-        this.rate = rate;
     }
 
     rebuild(timestamp, playerState) {
@@ -17,7 +15,7 @@ class GatherRate {
         let resourcesGathered = playerState.statistics.resourcesGathered[this.resCode];
         this.resourceCounts.push(resourcesGathered);
 
-        let windowStartTime = timestamp - this.timeWindowMilliSeconds;
+        let windowStartTime = timestamp - this.windowSizeMilliSeconds;
         while (
             this.timestamps.length
             && this.resourceCounts.length

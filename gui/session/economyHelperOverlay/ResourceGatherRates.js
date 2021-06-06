@@ -1,5 +1,10 @@
 class ResourceGatherRates {
     constructor() {
+        this.windowSizeSeconds = Engine.ConfigDB_GetValue("user", "economyhelper.resourcegatherrates.window.seconds");
+
+        this.headline = Engine.GetGUIObjectByName("economyHelper_resourceGatherRates_Headline");
+        this.headline.caption = `${this.headline.caption} per ${this.windowSizeSeconds} Seconds`
+
         this.gatherRateTrackers = []
         for (let resCode of g_ResourceData.GetCodes())
             this.addGatherRate(resCode);
@@ -14,6 +19,7 @@ class ResourceGatherRates {
         this.gatherRateTrackers.push(
             new GatherRate(
                 resCode,
+                this.windowSizeSeconds,
                 Engine.GetGUIObjectByName("economyHelper_resource" + id),
                 Engine.GetGUIObjectByName("economyHelper_resource" + id + "_icon"),
                 Engine.GetGUIObjectByName("economyHelper_resource" + id + "_gather_rate")
@@ -22,9 +28,9 @@ class ResourceGatherRates {
     }
 
     init() {
-        horizontallySpaceObjects("economyHelper_resourceGatherRates", this.gatherRateTrackers.length);
+        horizontallySpaceObjects("economyHelper_resourceGatherRates_Counter", this.gatherRateTrackers.length);
 
-        for (let counter of this.counters) {
+        for (let counter of this.gatherRateTrackers) {
             counter.icon.sprite = "stretched:session/icons/resources/" + counter.resCode + ".png";
         }
     }
@@ -36,6 +42,5 @@ class ResourceGatherRates {
         {
             gatherRateTracker.rebuild(timeElapsed, viewedPlayerState);
         }
-
     }
 }
