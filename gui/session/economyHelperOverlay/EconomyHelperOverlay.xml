@@ -4,17 +4,17 @@
         name="economyHelper_Overlay"
         type="image"
         sprite="sessionOverlayBackground"
-        size="-3 36 15% 10%"
+        size="-3 36 15% 2%+36+36+25"
         hidden="false"
         hotkey="session.economyhelper.overlay"
 >
 
     <object size="0 0 100% 100%" name="economyHelper_resourceGatherRates">
-        <object name="economyHelper_resourceGatherRates_Headline" type="text" size="0 0 100% 25"
+        <object name="economyHelper_resourceGatherRates_Headline" size="0 0 100% 25" type="text"
                 textcolor="255 255 255">
             Resource Gather Rates
         </object>
-        <object size="0 25 100% 100%" name="economyHelper_resourceGatherRates_Counter">
+        <object size="0 25 100% 36+25" name="economyHelper_resourceGatherRates_Counter">
             <repeat count="4">
                 <object name="economyHelper_resource[n]" size="0 0 89 100%" type="button" style="resourceCounter"
                         tooltip_style="sessionToolTipBold">
